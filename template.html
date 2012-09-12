@@ -36,6 +36,23 @@ URL: https://code.google.com/p/io-2012-slides
         </hgroup>
     </slide>
 
+    <slide>
+    <hgroup>
+      <h2>Outline</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>What is a micro-benchmark?</li>
+	    <li>Challenges</li>
+        <li>Java compilation model</li>
+        <li>How should you do it?</li>
+        <li>Caliper</li>
+        <li>Some interesting benchmark results</li>
+        <li>Conclusions</li>
+      </ul>	  	
+    </article>
+  </slide>
+
    <slide class="segue dark quote nobackground">
     <aside class="gdbar right bottom"><img src="images/lechuza.png"></aside>
     <article class="flexbox vleft auto-fadein smaller">
@@ -280,7 +297,7 @@ try {
 } catch(ArrayIndexOutOfBoundsException e) {}
 	</pre>
       
-	<ul>
+	<ul class="build">
 	   <li>Reasoning: "The loop termination test must be really expensive"</li>
 	   <li>Performance aside, which one is clearer?</li>
 	   <li>The "optimized" version runs several times slower than the "non-optimized" version on any modern JVM</li>
