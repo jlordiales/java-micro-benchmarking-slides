@@ -85,6 +85,14 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Micro-benchmarking</h2>
       <h3>What is it?</h3>	
     </hgroup>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Mencionar diferencias entre micro-benchmark y profiling</li>
+          <li>Herramientas para profiling</li>
+        </ul>
+      </section>
+    </aside>
     <article>
       <ul>
         <li>A microbenchmark attempts to measure the performance of a "small" bit of code</li>
@@ -130,6 +138,13 @@ public void doBenchmark() {
       <h2>Dynamic compilation</h2>
       <h3>A brief history</h3>
     </hgroup>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Mencionar javac y los .class (bytecode)</li>
+        </ul>
+      </section>
+    </aside>
     <article>
 	<ul>
         <li>The Java compiler transforms source code into JVM portable bytecode
@@ -144,9 +159,17 @@ public void doBenchmark() {
       <h2>Dynamic compilation</h2>
       <h3>A brief history</h3>
     </hgroup>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Primeras JVMs como pruebas de concepto</li>
+          <li>La performance de Java ahora esta a la par (o mejor) de cualquier otro lenguaje compilado</li>
+        </ul>
+      </section>
+    </aside>
     <article>
 	<ul>
-        <li>The first JVM implementations were entirely interpreted
+        <li>The first JVM implementations (1995) were entirely interpreted
 	<ul><li>Ever heard "Java is slower than..."?</li></ul></li>
 	<li>Then Just in Time (JIT) compilers came along</li>
       </ul>
@@ -174,6 +197,15 @@ public void doBenchmark() {
     <hgroup>
       <h2>HotSpot</h2>
     </hgroup>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Client comienza mas rapido pero aplica menos optimizaciones. Ideal para GUIs pq hay poca variabilidad</li>
+          <li>Server tiene un start-up mas lento pero a la larga tiene mejor performance. Ideal para procesos largos</li>
+          <li>Primera version de HotSpot en 1999</li>
+        </ul>
+      </section>
+    </aside>
     <article>
 	    <ul>
             <li><a href="http://en.wikipedia.org/wiki/List_of_Java_virtual_machines">Primary reference Java VM implementation</a></li>
@@ -284,6 +316,13 @@ public void timeArrayIteration_BAD() {
       <h2>"Clever" optimization</h2>
       <h3>Epic fail</h3>
     </hgroup>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Que pasa si climb() tira un ArrayIndex...Exception()?</li>
+        </ul>
+      </section>
+    </aside>
     <article class="smaller build">
         <pre class="prettyprint" data-lang="java">
 for (int i=0; i < range.length; i++)
@@ -858,6 +897,16 @@ public class ArrayCopyBenchmark extends SimpleBenchmark {
       <h2>Some interesting benchmark results</h2>
       <h3>Language libraries</h3>
     </hgroup>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>lang, core del lenguaje: Clonable, Comparable, StringBuilder, Wrappers, Class, Thread, Math</li>
+          <li>util: collections framework, date and time, random number generator</li>
+          <li>concurrent, escencial para apps concurrentes: executor framework, concurrent collections, semaphores, countdown latch, etc</li>
+          <li>io, ahora actualizada con nio y nio2 (java 7)</li>
+        </ul>
+      </section>
+    </aside>
     <article class="smaller">
       <ul>
 	<li>In this case the performance speedup is only about 10%</li>
@@ -879,6 +928,14 @@ public class ArrayCopyBenchmark extends SimpleBenchmark {
     <hgroup>
       <h2>Conclusions</h2>
     </hgroup>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Dont desing for performance se refiere a codigo. Siempre hay que considerar como la arquitectura va a impactar performance desde un principio</li>
+          <li>Hacer micro-benchmarks esta relacionado a aplicar el metodo cientifico</li>
+        </ul>
+      </section>
+    </aside>
     <article>
 	<ul>
 	<li>Don't desing for performance. Write clear and easy to understand code</li>
