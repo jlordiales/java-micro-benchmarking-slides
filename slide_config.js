@@ -19,7 +19,7 @@ var SLIDE_CONFIG = {
   // Author information
   presenters: [{
     name: 'José Luis Ordiales Coscia',
-    company: 'J2EE Software Engineer, Taller Technologies Peru',
+    company: '',
     github: 'http://github.com/jlordiales'
     //slides: 'http://github.com/jlordiales/java-micro-benchmarking-slides'
   }/*, {

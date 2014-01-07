@@ -174,7 +174,6 @@ slides > slide {
       position: absolute;
       bottom: $slide-top-bottom-padding / 2;
       left: $slide-left-right-padding;
-      background: url(../../images/lechuza.png) no-repeat 0 50%;
       @include background-size($brand-small-icon-size $brand-small-icon-size);
       padding-left: $brand-small-icon-size + 10;
       height: $brand-small-icon-size;
@@ -193,7 +192,6 @@ slides > slide {
   &.title-slide {
     &:after {
       content: '';
-      background: url(../../images/logo_taller_blanco.jpg) no-repeat 100% 50%;
       @include background-size(contain);
       position: absolute;
       bottom: $slide-top-bottom-padding;
@@ -348,7 +346,7 @@ ul {
   }
 
   > li:before {
-    content: '·';
+    content: '-';
     margin-left: -1em;
     position: absolute;
     font-weight: 600;
@@ -548,12 +546,12 @@ q {
   line-height: 72px;
 
   &:before {
-    content: '“';
+    content: '"';
     position: absolute;
     margin-left: -0.5em;
   }
   &:after {
-    content: '”';
+    content: '"';
     position: absolute;
     margin-left: 0.1em;
   }

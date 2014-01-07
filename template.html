@@ -27,7 +27,6 @@ URL: https://code.google.com/p/io-2012-slides
 <slides class="layout-widescreen">
 
     <slide class="title-slide segue nobackground">
-        <aside class="gdbar"><img src="images/lechuza.png"></aside>
         <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
         <hgroup class="auto-fadein">
           <h1 data-config-title><!-- populated from slide_config.json --></h1>
@@ -36,25 +35,7 @@ URL: https://code.google.com/p/io-2012-slides
         </hgroup>
     </slide>
 
-    <slide>
-    <hgroup>
-      <h2>Outline</h2>
-    </hgroup>
-    <article>
-      <ul class="build">
-        <li>What is a micro-benchmark?</li>
-	    <li>Challenges</li>
-        <li>Java compilation model</li>
-        <li>How should you do it?</li>
-        <li>Caliper</li>
-        <li>Some interesting benchmark results</li>
-        <li>Conclusions</li>
-      </ul>	  	
-    </article>
-  </slide>
-
    <slide class="segue dark quote nobackground">
-    <aside class="gdbar right bottom"><img src="images/lechuza.png"></aside>
     <article class="flexbox vleft auto-fadein smaller">
       <q>
         First make your code right, and then make it fast.
@@ -67,7 +48,6 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
    <slide class="segue dark quote nobackground">
-    <aside class="gdbar right bottom"><img src="images/lechuza.png"></aside>
     <article class="flexbox vleft auto-fadein smaller">
       <q>
         Even if you know exactly what is going on in your system, measure performance, don't speculate. You'll learn something, and nine times out of ten, it won't be that you were right!
@@ -196,6 +176,7 @@ public void doBenchmark() {
   <slide>
     <hgroup>
       <h2>HotSpot</h2>
+      <h3>What is it?</h3>
     </hgroup>
     <aside class="note">
       <section>
@@ -206,7 +187,7 @@ public void doBenchmark() {
         </ul>
       </section>
     </aside>
-    <article>
+    <article class="vcenter">
 	    <ul>
             <li><a href="http://en.wikipedia.org/wiki/List_of_Java_virtual_machines">Primary reference Java VM implementation</a></li>
             <li>Has client and server mode</li>
@@ -405,88 +386,6 @@ public void timeMyOperation(int reps) {
 	   <li>Every benchmark method must begin with "time..." and have a "int reps" parameter</li>
 	   <li>There is "setup" and "tearDown" methods for init and cleanup tasks</li>
 	</ul>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Caliper</h2>
-      <h3>Passing parameters</h3>
-    </hgroup>
-    <article class="smaller">
-      <pre class="prettyprint" data-lang="java">
-@Param({ "2", "20", "2000", "200000" })int max;
-protected void setUp() throws Exception {
-    mArray = new Foo[max];
-    for (int i = 0; i < max; ++i)
-        mArray[i] = new Foo();    
-}
-public int timeArrayIterationForEach(int reps) {
-    int sum = 0;
-    for (int rep = 0; rep < reps; ++rep) {
-      for (final Foo a : mArray) 
-        sum += a.mSplat;      
-    }
-    return sum;
-}
-	</pre>
-	<ul>
-	   <li>You can specify parameters values directly on the code or pass them on the invocation (-Dmax=2,20,2000)</li>
-	   <li>Every benchmark in the class will run for each parameter value</li>
-	   <li>@Param values are guaranteed to be injected before the setup method runs</li>
-	</ul>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Caliper</h2>
-      <h3>Passing parameters</h3> 
-    </hgroup>
-    <article>
-        <ul><li>You can also specify a parameter of type Enum and the benchmark will automatically run for every possible value of the enumeration</li></ul>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Caliper</h2>
-      <h3>Passing parameters</h3>
-    </hgroup>
-    <article class="smaller">
-      <pre class="prettyprint" data-lang="java">
-@Param Method method;
-public enum Method {
-    TO_STRING {
-        String convert(double d) {
-            return ((Double) d).toString();
-        }
-    },
-    STRING_VALUE_OF {
-        String convert(double d) {
-            return String.valueOf(d);
-        }
-    }...
-}
-public int timePrimitive(int reps) {
-     final double d = value.value;
-     int dummy = 0;
-     for (int i = 0; i < reps; i++)
-         dummy += method.convert(d).length();
-     return dummy;
-}
-	</pre>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Caliper</h2>
-      <h3>Viewing results</h3>   	
-    </hgroup>
-    <article class="smaller">
-      <ul><li>Caliper can automatically upload benchmarks results for easier visualization</li></ul>	
-      <iframe data-src="http://microbenchmarks.appspot.com/run/jessewilson@google.com/examples.ArraySortBenchmark"></iframe>
     </article>
   </slide>
 
@@ -961,7 +860,6 @@ public class ArrayCopyBenchmark extends SimpleBenchmark {
   </slide>
 
   <slide class="thank-you-slide segue nobackground">
-    <aside class="gdbar right"><img src="images/lechuza.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Thank You!&gt;</h2>
     </article>
