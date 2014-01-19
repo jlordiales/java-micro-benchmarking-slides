@@ -1,7 +1,7 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Performance and Benchmarking<br>in Java',
+    title: 'Performance and Micro-Benchmarking<br>in Java',
     subtitle: 'Myths, challenges and best practices',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
